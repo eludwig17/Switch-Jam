@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d33249e5ae722fb40ad2807c439696d9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 174982
+  packageName: Chomp Man - 3D Game Kit & Tutorial
+  packageVersion: 1.0
+  assetPath: Assets/_ChompMan-PM/Prefabs/Characters/Chomp.prefab
+  uploadId: 385078

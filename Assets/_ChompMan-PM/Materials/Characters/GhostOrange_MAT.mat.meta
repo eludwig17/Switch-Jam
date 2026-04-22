@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 70ba22ec1dded714d89bcdab0542907c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 174982
+  packageName: Chomp Man - 3D Game Kit & Tutorial
+  packageVersion: 1.0
+  assetPath: Assets/_ChompMan-PM/Materials/Characters/GhostOrange_MAT.mat
+  uploadId: 385078

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8a5cdb9359a01f04b8bcc756788fc964
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 174982
+  packageName: Chomp Man - 3D Game Kit & Tutorial
+  packageVersion: 1.0
+  assetPath: Assets/_ChompMan-PM/Prefabs/Enviornment/Maze_Geo/Stage_Mesh_03.prefab
+  uploadId: 385078

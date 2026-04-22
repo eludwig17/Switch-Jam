@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ff85b959d18aea5498572609247ff7c6
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 174982
+  packageName: Chomp Man - 3D Game Kit & Tutorial
+  packageVersion: 1.0
+  assetPath: Assets/_ChompMan-PM/Materials/Props/PowerPellet_MAT.mat
+  uploadId: 385078

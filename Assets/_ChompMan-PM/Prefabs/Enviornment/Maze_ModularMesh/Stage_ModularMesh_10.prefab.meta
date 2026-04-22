@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4c5d18f1bebb0b04fb7b6ad0be856935
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 174982
+  packageName: Chomp Man - 3D Game Kit & Tutorial
+  packageVersion: 1.0
+  assetPath: Assets/_ChompMan-PM/Prefabs/Enviornment/Maze_ModularMesh/Stage_ModularMesh_10.prefab
+  uploadId: 385078
