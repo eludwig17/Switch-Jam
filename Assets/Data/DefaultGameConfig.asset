@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91bc6a1714e9e49b59aa74c917e1105d, type: 3}
+  m_Name: DefaultGameConfig
+  m_EditorClassIdentifier: Assembly-CSharp::GameConfig
+  pelletScore: 10
+  powerPelletScore: 50
+  cherryScore: 200
+  ghostEatScore: 300
+  switchModeGhostScore: 500
+  raveScoreMultiplier: 2
+  powerPelletsPerSwitch: 3
+  raveDuration: 8
+  switchDuration: 10
+  invertControlChance: 0.3
+  invertControlMinDuration: 2
+  invertControlMaxDuration: 4
+  chompMoveSpeed: 5
+  ghostFormMoveSpeed: 6
+  startingLives: 3
+  ghostNormalSpeed: 4
+  ghostFrightenedSpeed: 2.5
+  ghostRespawnDelay: 3

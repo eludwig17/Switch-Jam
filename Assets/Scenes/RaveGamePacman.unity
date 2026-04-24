@@ -1200,6 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &64332735
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2390,6 +2391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 1
+  respawnDelay: 20
 --- !u!135 &241916206
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2764,6 +2766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &265752917
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3236,6 +3239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &331258158
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3501,6 +3505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &340365412
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3835,6 +3840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &362873381
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4037,12 +4043,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   config: {fileID: 11400000, guid: 9883edcd0352144e18c1ce9dacc6c763, type: 2}
-  currentState: 0
+  currState: 0
   score: 0
   lives: 3
   powerPelletCount: 0
-  pelletsRemaining: 0
-  controlsInverted: 0
+  controlsInverted: 1
 --- !u!4 &376929976
 Transform:
   m_ObjectHideFlags: 0
@@ -4225,6 +4230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 1
+  respawnDelay: 20
 --- !u!135 &402625810
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4399,6 +4405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &415658441
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4445,6 +4452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &435997554
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4635,6 +4643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &441373011
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4675,6 +4684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &447717196
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4902,6 +4912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &492026005
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5011,6 +5022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &494046617
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5195,6 +5207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &505914568
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5235,6 +5248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &516650779
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5350,6 +5364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &520590136
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5599,6 +5614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &547559864
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5639,6 +5655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &552845376
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5934,6 +5951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &582966590
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6043,6 +6061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &588555707
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6490,6 +6509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &617883037
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6749,6 +6769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &647850579
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6820,6 +6841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 1
+  respawnDelay: 20
 --- !u!135 &651610218
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7142,6 +7164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &701780262
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7257,6 +7280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &711246577
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7447,6 +7471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &736117524
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7539,7 +7564,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1484215935965174168, guid: 60c2480153d4da841ab193c749b9e87c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 963243386}
+    - targetCorrespondingSourceObject: {fileID: 1484215935965174168, guid: 60c2480153d4da841ab193c749b9e87c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 963243385}
   m_SourcePrefab: {fileID: 100100000, guid: 60c2480153d4da841ab193c749b9e87c, type: 3}
 --- !u!4 &755502780 stripped
 Transform:
@@ -7566,6 +7599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &759882279
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7965,6 +7999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &793279022
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8273,6 +8308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &800795004
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8319,6 +8355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &807953828
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8712,6 +8749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &816157767
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8752,6 +8790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &823700715
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8885,6 +8924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &873964329
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9069,6 +9109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &898851587
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9115,6 +9156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &908227232
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9392,6 +9434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &927881402
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9513,6 +9556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &947715886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9690,6 +9734,62 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 954083839}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &963243383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484215935965174168, guid: 60c2480153d4da841ab193c749b9e87c,
+    type: 3}
+  m_PrefabInstance: {fileID: 755502779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &963243385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963243383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a880f3ec5d5643e19edaaabe33285d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  player: {fileID: 0}
+  ghostHome: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bodyRenderers: []
+  raycastDistance: 0.55
+  intersectionCheckInterval: 0.1
+  chaseColor: {r: 1, g: 0, b: 0, a: 1}
+  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
+--- !u!54 &963243386
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963243383}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &964779158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -9709,6 +9809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &964779162
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9749,6 +9850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &967835878
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9858,6 +9960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &971220283
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10272,6 +10375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1010726222
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10393,6 +10497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1035662566
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10508,6 +10613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1045359404
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10548,6 +10654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1058792754
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10663,6 +10770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1062715966
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10797,6 +10905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1070779110
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10906,6 +11015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1078347507
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11021,6 +11131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1085343022
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11103,6 +11214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1102770449
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11439,6 +11551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1117828393
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11538,6 +11651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1124957785
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11657,6 +11771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1130700500
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11892,6 +12007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1163401799
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12007,6 +12123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1172566354
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12116,6 +12233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1173844089
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12156,6 +12274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1181607753
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12202,6 +12321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1202685878
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12223,6 +12343,12 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.13398124
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!1 &1206128631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 722881024703805765, guid: f4c0092c8046f484a80394f3f076d9d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 610395948474079903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1209175821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12370,6 +12496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1219768869
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12475,6 +12602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1248650589
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12515,6 +12643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1260553793
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12555,6 +12684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1261150686
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12664,6 +12794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1264466397
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12773,6 +12904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1274624000
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13100,6 +13232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1293949764
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13209,6 +13342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1299655307
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13318,6 +13452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1301088317
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13396,6 +13531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1312067836
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13505,6 +13641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1318854505
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13764,6 +13901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1338101811
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13873,6 +14011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1341098352
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13982,6 +14121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1346522051
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14203,6 +14343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1364155855
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14318,6 +14459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1371757625
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14400,6 +14542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1380792814
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14515,6 +14658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1386083318
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14593,6 +14737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1388843858
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14739,6 +14884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1391626099
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14848,6 +14994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 1
+  respawnDelay: 20
 --- !u!135 &1402670451
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -14869,6 +15016,62 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.29939485
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1446365552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9163715946089988518, guid: bbf054d6e436c51468be981115a84991,
+    type: 3}
+  m_PrefabInstance: {fileID: 9163715945906007019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1446365554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446365552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a880f3ec5d5643e19edaaabe33285d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  player: {fileID: 0}
+  ghostHome: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bodyRenderers: []
+  raycastDistance: 0.55
+  intersectionCheckInterval: 0.1
+  chaseColor: {r: 1, g: 0, b: 0, a: 1}
+  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
+--- !u!54 &1446365555
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446365552}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1450188670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15154,6 +15357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1455529643
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15200,6 +15404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1460635764
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15246,6 +15451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1473990888
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15286,6 +15492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1476666978
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15395,6 +15602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1478854222
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15435,6 +15643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 1
+  respawnDelay: 20
 --- !u!135 &1491990436
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15550,6 +15759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1492485651
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15590,6 +15800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1492943443
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15699,6 +15910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1494575985
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15942,6 +16154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1510132600
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16357,6 +16570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1560250462
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16397,6 +16611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1565674266
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16437,6 +16652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1565911212
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16692,6 +16908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1597146338
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16801,6 +17018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1597163512
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16910,6 +17128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1611860125
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17047,6 +17266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1620962342
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17146,6 +17366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1628085649
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17186,6 +17407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1639364117
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17415,6 +17637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1682665535
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17524,6 +17747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1684227974
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17564,6 +17788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1684235358
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17626,7 +17851,7 @@ PrefabInstance:
     - target: {fileID: 7308235905141624706, guid: d33249e5ae722fb40ad2807c439696d9,
         type: 3}
       propertyPath: m_Name
-      value: Chomp
+      value: Chomp Player
       objectReference: {fileID: 0}
     - target: {fileID: 7308235905141624706, guid: d33249e5ae722fb40ad2807c439696d9,
         type: 3}
@@ -17804,6 +18029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1698295577
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17844,6 +18070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1705167670
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18018,6 +18245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1710990526
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18190,6 +18418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1726120279
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18299,6 +18528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1726183536
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18345,6 +18575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1728645473
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18454,6 +18685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1735729918
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18674,6 +18906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1746102486
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18783,6 +19016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1747820615
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18898,6 +19132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1755339298
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18974,6 +19209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1767116588
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19083,6 +19319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1771547101
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19198,6 +19435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1793876330
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19238,6 +19476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1799690401
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19278,6 +19517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1807112626
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19462,6 +19702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1820207610
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19489,6 +19730,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6706788708426513958}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822325010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806576916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a880f3ec5d5643e19edaaabe33285d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  player: {fileID: 0}
+  ghostHome: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bodyRenderers: []
+  raycastDistance: 0.55
+  intersectionCheckInterval: 0.1
+  chaseColor: {r: 1, g: 0, b: 0, a: 1}
+  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
+--- !u!54 &1822325011
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806576916}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1825699312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -19508,6 +19799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1825699316
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19617,6 +19909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1847842332
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19726,6 +20019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1855076190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19869,6 +20163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1870007687
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19978,6 +20273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1872317857
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20162,6 +20458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1877302556
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20202,6 +20499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1888959737
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20386,6 +20684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1915589723
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20426,6 +20725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1921899781
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20466,6 +20766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1932029373
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20506,6 +20807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1942669531
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20546,6 +20848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1944626238
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20655,6 +20958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1946013403
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20695,6 +20999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1947956173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20735,6 +21040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1948388350
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20897,6 +21203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1951881849
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21087,6 +21394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1968750592
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21196,6 +21504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1975087341
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21242,6 +21551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1992596760
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21282,6 +21592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1992642130
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21391,6 +21702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &1993248895
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21506,6 +21818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2022280317
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21643,6 +21956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2023798729
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21683,6 +21997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2023828049
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21885,6 +22200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2043776389
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21994,6 +22310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2044842848
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22034,6 +22351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2045789101
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22074,6 +22392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2051240676
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22189,6 +22508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2053674706
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22298,6 +22618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2063932981
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22407,6 +22728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2064656143
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22447,6 +22769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2070698304
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22487,6 +22810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2083247834
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22518,7 +22842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2095465457}
   m_Layer: 0
-  m_Name: Enemyies
+  m_Name: Ghosts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22562,6 +22886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2100269196
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22730,6 +23055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2121271068
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22782,6 +23108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2124013443
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -22891,6 +23218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2130241007
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23000,6 +23328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2133100808
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23112,6 +23441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PelletCollectible
   isPowerPellet: 0
+  respawnDelay: 20
 --- !u!135 &2136957573
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23204,7 +23534,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 722881024703805765, guid: f4c0092c8046f484a80394f3f076d9d7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610395948474079907}
+    - targetCorrespondingSourceObject: {fileID: 722881024703805765, guid: f4c0092c8046f484a80394f3f076d9d7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 610395948474079906}
   m_SourcePrefab: {fileID: 100100000, guid: f4c0092c8046f484a80394f3f076d9d7, type: 3}
 --- !u!4 &610395948474079904 stripped
 Transform:
@@ -23212,6 +23550,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 610395948474079903}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &610395948474079906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206128631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a880f3ec5d5643e19edaaabe33285d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostController
+  player: {fileID: 0}
+  ghostHome: {fileID: 0}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bodyRenderers: []
+  raycastDistance: 0.55
+  intersectionCheckInterval: 0.1
+  chaseColor: {r: 1, g: 0, b: 0, a: 1}
+  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
+--- !u!54 &610395948474079907
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206128631}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &3251690327539065352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23364,7 +23752,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6706788707963437449, guid: 41f5bb0172a94a4459eee9900b6bf02c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1822325011}
+    - targetCorrespondingSourceObject: {fileID: 6706788707963437449, guid: 41f5bb0172a94a4459eee9900b6bf02c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1822325010}
   m_SourcePrefab: {fileID: 100100000, guid: 41f5bb0172a94a4459eee9900b6bf02c, type: 3}
 --- !u!1001 &9163715945906007019
 PrefabInstance:
@@ -23437,7 +23833,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9163715946089988518, guid: bbf054d6e436c51468be981115a84991,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446365555}
+    - targetCorrespondingSourceObject: {fileID: 9163715946089988518, guid: bbf054d6e436c51468be981115a84991,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446365554}
   m_SourcePrefab: {fileID: 100100000, guid: bbf054d6e436c51468be981115a84991, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
