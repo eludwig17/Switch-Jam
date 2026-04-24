@@ -1514,6 +1514,81 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1492485646}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &95454792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1658977062}
+    m_Modifications:
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_Name
+      value: Stage_Mesh_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8877
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.596
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0079956
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4667
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+--- !u!4 &95454793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124,
+    type: 3}
+  m_PrefabInstance: {fileID: 95454792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114379138 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5cc64e158fa28a442a7bfee415a9b6b6,
@@ -3895,7 +3970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RaveFX
   raveLights: []
-  normalColors: []
+  normColors: []
   cycleInterval: 0.15
   ravePalette:
   - {r: 1, g: 0.2, b: 0.6, a: 1}
@@ -7186,6 +7261,73 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.13398124
   m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!1001 &702968524
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1658977062}
+    m_Modifications:
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_Name
+      value: Stage_Mesh_05 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1650867243782870, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.605
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5246c140e92fd544a921c04bb8d9f124, type: 3}
+--- !u!4 &702968525 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4132240152545758, guid: 5246c140e92fd544a921c04bb8d9f124,
+    type: 3}
+  m_PrefabInstance: {fileID: 702968524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &710650904 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -9761,7 +9903,7 @@ MonoBehaviour:
   raycastDistance: 0.55
   intersectionCheckInterval: 0.1
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
-  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  scaredColor: {r: 0.2, g: 0.3, b: 1, a: 1}
   eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
 --- !u!54 &963243386
 Rigidbody:
@@ -15043,7 +15185,7 @@ MonoBehaviour:
   raycastDistance: 0.55
   intersectionCheckInterval: 0.1
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
-  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  scaredColor: {r: 0.2, g: 0.3, b: 1, a: 1}
   eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
 --- !u!54 &1446365555
 Rigidbody:
@@ -17469,6 +17611,7 @@ Transform:
   - {fileID: 576810135}
   - {fileID: 1665499750}
   - {fileID: 1723097036}
+  - {fileID: 95454793}
   - {fileID: 1450188671}
   - {fileID: 249161629}
   - {fileID: 1402658254}
@@ -17477,6 +17620,7 @@ Transform:
   - {fileID: 795758093}
   - {fileID: 405370053}
   - {fileID: 1209175822}
+  - {fileID: 702968525}
   - {fileID: 64886391}
   - {fileID: 1949858069}
   - {fileID: 1554094403}
@@ -19751,7 +19895,7 @@ MonoBehaviour:
   raycastDistance: 0.55
   intersectionCheckInterval: 0.1
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
-  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  scaredColor: {r: 0.2, g: 0.3, b: 1, a: 1}
   eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
 --- !u!54 &1822325011
 Rigidbody:
@@ -23571,7 +23715,7 @@ MonoBehaviour:
   raycastDistance: 0.55
   intersectionCheckInterval: 0.1
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
-  frightenedColor: {r: 0.2, g: 0.3, b: 1, a: 1}
+  scaredColor: {r: 0.2, g: 0.3, b: 1, a: 1}
   eatenColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.3}
 --- !u!54 &610395948474079907
 Rigidbody:
