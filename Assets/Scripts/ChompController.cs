@@ -3,14 +3,14 @@ using System;
 using System.IO;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ChompController : MonoBehaviour {
+public class ChompController : MonoBehaviour{
     [Header("References")]
-    [SerializeField] private Transform bodyVisual;       // The mesh to flip/color
+    [SerializeField] private Transform bodyVisual; // mesh to flip/color
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Tuning")]
     [SerializeField] private float raycastDistance = 0.55f;
-    [SerializeField] private float turnBufferTime = 0.2f; // Queue a turn just before a corner
+    [SerializeField] private float turnBufferTime = 0.2f; // queues a turn just before a corner
 
     private Rigidbody rb;
     private Vector3 currentDir = Vector3.zero;
@@ -22,7 +22,7 @@ public class ChompController : MonoBehaviour {
     private int stuckTickCount = 0;
     private float nextCollisionLogTime = 0f;
 
-    // Public for GhostController-AI-takeover during SWITCH mode
+    // public for ghostcontroller-ai taking over
     public Vector3 CurrentDirection => currentDir;
 
     void Awake(){
@@ -84,14 +84,13 @@ public class ChompController : MonoBehaviour {
 
         lastFixedPosition = transform.position;
         if (fixedTick % 20 == 0){
-            
         }
         FaceDirection(currentDir);
     }
 
     private void ReadInput(){
         Vector3 input = Vector3.zero;
-        // Only one axis at a time (grid-movement feel)
+        //one axis at a time
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -112,7 +111,6 @@ public class ChompController : MonoBehaviour {
         queuedDirTimer -= Time.deltaTime;
         if (queuedDir == Vector3.zero) return;
 
-        // Immediately accept reverse
         if (queuedDir == -currentDir){
             currentDir = queuedDir;
             queuedDir = Vector3.zero;
@@ -147,11 +145,10 @@ public class ChompController : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other){
-        // Collision with a ghost is handled by GhostController (it knows the current mode)
+        // collision with a ghost is handled by ghost controller
     }
 
-    void OnCollisionStay(Collision collision)
-    {
+    void OnCollisionStay(Collision collision){
         if (stuckTickCount < 5) return;
         if (Time.time < nextCollisionLogTime) return;
         nextCollisionLogTime = Time.time + 0.2f;
