@@ -86,7 +86,6 @@ public class GhostController : MonoBehaviour{
 
     void FixedUpdate(){
         if (GameManager.Instance == null) return;
-
         float dist = player != null ? Vector3.Distance(transform.position, player.position) : float.MaxValue;
 
         if (mood == GhostMood.Roam && dist <= playerDetectionRange)
@@ -115,7 +114,6 @@ public class GhostController : MonoBehaviour{
             pathIndex++;
             return;
         }
-
         rb.linearVelocity = dir.normalized * speed;
     }
 
@@ -161,8 +159,7 @@ public class GhostController : MonoBehaviour{
     private void PickNewRoamTarget(){
         for (int i = 0; i < 10; i++){
             Vector3 candidate = transform.position + new Vector3(
-                Random.Range(-roamWaypointRadius, roamWaypointRadius),
-                0,
+                Random.Range(-roamWaypointRadius, roamWaypointRadius), 0,
                 Random.Range(-roamWaypointRadius, roamWaypointRadius));
 
             if (!Physics.CheckSphere(candidate, 0.3f, wallLayer)){
