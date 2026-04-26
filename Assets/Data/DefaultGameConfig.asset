@@ -19,14 +19,14 @@ MonoBehaviour:
   switchModeGhostScore: 500
   raveScoreMultiplier: 2
   powerPelletsPerSwitch: 3
-  raveDuration: 8
-  switchDuration: 10
+  raveDuration: 10
+  switchDuration: 15
   invertControlChance: 0.3
-  invertControlMinDuration: 5
-  invertControlMaxDuration: 10
-  chompMoveSpeed: 3
-  ghostFormMoveSpeed: 4
+  invertControlMinDuration: 10
+  invertControlMaxDuration: 15
+  chompMoveSpeed: 4
+  ghostFormMoveSpeed: 6
   startingLives: 2
-  ghostNormalSpeed: 3
+  ghostNormalSpeed: 3.5
   ghostFrightenedSpeed: 2.5
   ghostRespawnDelay: 3

@@ -14,10 +14,13 @@ public class GhostController : MonoBehaviour{
 
     [Header("Tuning")]
     [SerializeField] private float raycastDistance = 0.8f;
-    [SerializeField] private float pathUpdateInterval = 0.4f;
+    [SerializeField] private float pathUpdateInterval = 0.2f;
     [SerializeField] private float waypointReachedDistance = 0.25f;
     [SerializeField] private float playerDetectionRange = 8f;
     [SerializeField] private float roamWaypointRadius = 5f;
+    [SerializeField] private float stuckCheckInterval = 1.5f;
+    [SerializeField] private float stuckMoveThreshold = 0.05f;
+    [SerializeField] private float nudgeForce = 0.5f;
 
     [Header("Colors")]
     [SerializeField] private Color chaseColor = Color.red;
@@ -33,6 +36,8 @@ public class GhostController : MonoBehaviour{
     private int _pathIndex;
     private Vector3 _roamTarget;
     private bool _canHit = true;
+    private Vector3 _lastCheckedPos;
+    private float _stuckTimer;
 
     private static readonly Vector3[] Cardinals = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
 
@@ -61,6 +66,7 @@ public class GhostController : MonoBehaviour{
             if (pObj != null) player = pObj.transform;
         }
         PickNewRoamTarget();
+        _lastCheckedPos = transform.position;
     }
 
     void OnEnable(){
@@ -95,6 +101,29 @@ public class GhostController : MonoBehaviour{
 
         float speed = _mood == GhostMood.Frightened ? GameManager.Instance.Config.ghostFrightenedSpeed : GameManager.Instance.Config.ghostNormalSpeed;
         MoveAlongPath(speed);
+        
+        _stuckTimer += Time.fixedDeltaTime;
+        if (_stuckTimer >= stuckCheckInterval){
+            _stuckTimer = 0f;
+            float moved = Vector3.Distance(transform.position, _lastCheckedPos);
+            if (moved < stuckMoveThreshold && _mood != GhostMood.Eaten)
+                ForceUnStuck();
+            _lastCheckedPos = transform.position;
+        }
+    }
+    
+    private void ForceUnStuck(){
+        foreach (var d in Cardinals){
+            if (!Physics.Raycast(transform.position, d, raycastDistance * 1.5f, wallLayer)){
+                _rb.linearVelocity = d * nudgeForce;
+                _currentPath.Clear();
+                _pathIndex = 0;
+                PickNewRoamTarget();
+                return;
+            }
+        }
+        _rb.linearVelocity = Vector3.zero;
+        transform.position += Vector3.right * 0.1f;
     }
 
     private void MoveAlongPath(float speed){
@@ -177,7 +206,7 @@ public class GhostController : MonoBehaviour{
         open.Add(new Node(start, null, 0, Heuristic(start, goal)));
 
         int iterations = 0;
-        while (open.Count > 0 && iterations < 200){
+        while (open.Count > 0 && iterations < 2000){
             iterations++;
 
             Node current = open[0];
