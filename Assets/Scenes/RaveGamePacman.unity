@@ -4962,18 +4962,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2a1e963da5a47a7b92d15ed29f9389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  pelletClip: {fileID: 0}
-  powerPelletClip: {fileID: 0}
-  cherryClip: {fileID: 0}
-  ghostEatClip: {fileID: 0}
-  playerCaughtClip: {fileID: 0}
-  switchModeClip: {fileID: 0}
-  raveStartClip: {fileID: 0}
-  gameOverClip: {fileID: 0}
-  normalMusic: {fileID: 0}
-  raveMusic: {fileID: 0}
-  switchMusic: {fileID: 0}
-  sfxVolume: 0.8
+  pelletClip: {fileID: 8300000, guid: a1b981aaa54d64523a5630a08642392d, type: 3}
+  powerPelletClip: {fileID: 8300000, guid: 38309ae78af7c435bbe7b8cedfac006b, type: 3}
+  cherryClip: {fileID: 8300000, guid: fe5170e0cc44d4b248c57a4eae0f04e3, type: 3}
+  ghostEatClip: {fileID: 8300000, guid: 402e39d2f7fe74d688d49402dead1b90, type: 3}
+  playerCaughtClip: {fileID: 8300000, guid: 762e33b37f10d4e1cb04d7147ec8f0e9, type: 3}
+  switchModeClip: {fileID: 8300000, guid: 889871d433c0d4170a4482609f6d310a, type: 3}
+  raveStartClip: {fileID: 8300000, guid: 7cbfaca1c55234f36b0fd3b3ff6e3ca1, type: 3}
+  gameOverClip: {fileID: 8300000, guid: 07a714fa608de43eea3f6bee27a274ca, type: 3}
+  normalMusic: {fileID: 8300000, guid: dfef5351022eb482a88370ae08c559cf, type: 3}
+  raveMusic: {fileID: 8300000, guid: 687105b1fd27d45e5a5514d592869738, type: 3}
+  switchMusic: {fileID: 8300000, guid: 15d9157dc2657496bbd9e68518cad98e, type: 3}
+  sfxVolume: 0.5
   musicVolume: 0.5
 --- !u!82 &376929974
 AudioSource:
@@ -5088,7 +5088,7 @@ MonoBehaviour:
   currState: 0
   score: 0
   highScore: 0
-  lives: 3
+  lives: 2
   powerPelletCount: 0
   controlsInverted: 0
 --- !u!4 &376929976
