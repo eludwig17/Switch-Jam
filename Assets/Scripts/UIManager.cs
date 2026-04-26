@@ -138,8 +138,8 @@ public class UIManager : MonoBehaviour {
         Time.timeScale = 1f;
         GameManager.Instance.StartGame();
     }
-
-    public void ResumeButton() => GameManager.Instance.TogglePause();
+  
+    public void TogglePause() => GameManager.Instance.TogglePause();
 
     public void RestartButton(){
         Time.timeScale = 1f;
