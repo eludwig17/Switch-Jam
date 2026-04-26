@@ -4153,7 +4153,7 @@ MonoBehaviour:
   score: 0
   lives: 3
   powerPelletCount: 0
-  controlsInverted: 1
+  controlsInverted: 0
 --- !u!4 &376929976
 Transform:
   m_ObjectHideFlags: 0
@@ -7644,6 +7644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1484215935964939704, guid: 60c2480153d4da841ab193c749b9e87c,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1484215935964939704, guid: 60c2480153d4da841ab193c749b9e87c,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.67
       objectReference: {fileID: 0}
@@ -8542,16 +8547,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0347434
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0408776
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.55
+      value: -2.6721
       objectReference: {fileID: 0}
     - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6
+      value: 0.7781
       objectReference: {fileID: 0}
     - target: {fileID: 4190176335871334, guid: 99fcfb317b7f55b4da19106b0a543800, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9965,7 +9978,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.4
-  m_Center: {x: 0.00849709, y: 0.5903304, z: -0.0716406}
+  m_Center: {x: 0.00849709, y: 0, z: -0.0716406}
 --- !u!135 &963243388
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9986,7 +9999,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0.00849709, y: 0.5903304, z: -0.0716406}
+  m_Center: {x: 0.00849709, y: 0, z: -0.0716406}
 --- !u!1 &964779158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -15421,7 +15434,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.4
-  m_Center: {x: 0.008497089, y: 0.5903304, z: -0.071640596}
+  m_Center: {x: 0.008497089, y: 0, z: -0.071640596}
 --- !u!135 &1446365557
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15442,7 +15455,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0.008497089, y: 0.5903304, z: -0.071640596}
+  m_Center: {x: 0.008497089, y: 0, z: -0.071640596}
 --- !u!1001 &1450188670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20188,7 +20201,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.4
-  m_Center: {x: 0.008497091, y: 0.5903304, z: -0.0716406}
+  m_Center: {x: 0.008497091, y: 0, z: -0.0716406}
 --- !u!135 &1822325013
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -20209,7 +20222,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0.008497091, y: 0.5903304, z: -0.0716406}
+  m_Center: {x: 0.008497091, y: 0, z: -0.0716406}
 --- !u!1 &1825699312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -23908,6 +23921,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 722881024703374693, guid: f4c0092c8046f484a80394f3f076d9d7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 722881024703374693, guid: f4c0092c8046f484a80394f3f076d9d7,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.83
       objectReference: {fileID: 0}
@@ -24069,7 +24087,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.4
-  m_Center: {x: 0.00849709, y: 0.5903304, z: -0.071640596}
+  m_Center: {x: 0.00849709, y: 0, z: -0.071640596}
 --- !u!135 &610395948474079909
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -24090,7 +24108,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
-  m_Center: {x: 0.00849709, y: 0.5903304, z: -0.071640596}
+  m_Center: {x: 0.00849709, y: 0, z: -0.071640596}
 --- !u!1001 &3251690327539065352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24192,6 +24210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6706788707963542953, guid: 41f5bb0172a94a4459eee9900b6bf02c,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706788707963542953, guid: 41f5bb0172a94a4459eee9900b6bf02c,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.49
       objectReference: {fileID: 0}
@@ -24273,6 +24296,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}

@@ -1,52 +1,55 @@
 using UnityEngine;
-using System;
-using System.IO;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ChompController : MonoBehaviour{
-    [Header("References")]
-    [SerializeField] private Transform bodyVisual; // mesh to flip/color
+    [Header("References")] [SerializeField]
+    private Transform bodyVisual;
+
     [SerializeField] private LayerMask wallLayer;
 
-    [Header("Tuning")]
-    [SerializeField] private float raycastDistance = 0.55f;
-    [SerializeField] private float turnBufferTime = 0.2f; // queues a turn just before a corner
+    [Header("Tuning")] [SerializeField] private float raycastDistance = 0.55f;
+    [SerializeField] private float turnBufferTime = 0.2f;
 
-    private Rigidbody rb;
-    private Vector3 currentDir = Vector3.zero;
-    private Vector3 queuedDir = Vector3.zero;
-    private float queuedDirTimer = 0f;
-    private bool inverted = false;
-    private int fixedTick = 0;
-    private Vector3 lastFixedPosition;
-    private int stuckTickCount = 0;
-    private float nextCollisionLogTime = 0f;
+    private Rigidbody _rb;
+    private Vector3 _currentDir;
+    private Vector3 _queuedDir;
+    private float _queuedDirTimer;
+    private bool _inverted;
+    private Vector3 _startPosition;
 
-    // public for ghostcontroller-ai taking over
-    public Vector3 CurrentDirection => currentDir;
+    public Vector3 CurrentDirection => _currentDir;
 
     void Awake(){
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
-        if (rb.isKinematic){
-            rb.isKinematic = false;
-        }
-        lastFixedPosition = transform.position;
+        _rb = GetComponent<Rigidbody>();
+        _rb.useGravity = false;
+        _rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        _rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        _rb.interpolation = RigidbodyInterpolation.Interpolate;
+        if (_rb.isKinematic) _rb.isKinematic = false;
+
+        _startPosition = transform.position;
     }
 
     void OnEnable(){
         GameEvents.OnControlsInvertedChanged += OnInvertChanged;
+        GameEvents.OnPlayerCaught += HandleCaught;
     }
 
     void OnDisable(){
         GameEvents.OnControlsInvertedChanged -= OnInvertChanged;
+        GameEvents.OnPlayerCaught -= HandleCaught;
     }
 
     private void OnInvertChanged(bool isInverted){
-        inverted = isInverted;
+        _inverted = isInverted;
+    }
+
+    private void HandleCaught(){
+        transform.position = _startPosition;
+        _currentDir = Vector3.zero;
+        _queuedDir = Vector3.zero;
+        _queuedDirTimer = 0f;
+        _rb.linearVelocity = Vector3.zero;
     }
 
     void Update(){
@@ -55,10 +58,9 @@ public class ChompController : MonoBehaviour{
     }
 
     void FixedUpdate(){
-        fixedTick++;
-        if (currentDir == Vector3.zero) return;
-        bool blocked = IsBlocked(currentDir);
-        if (blocked){rb.linearVelocity = Vector3.zero;
+        if (_currentDir == Vector3.zero) return;
+        if (IsBlocked(_currentDir)){
+            _rb.linearVelocity = Vector3.zero;
             return;
         }
 
@@ -68,72 +70,47 @@ public class ChompController : MonoBehaviour{
                 : GameManager.Instance.Config.chompMoveSpeed)
             : 5f;
 
-        rb.linearVelocity = currentDir * speed;
-        float moved = Vector3.Distance(transform.position, lastFixedPosition);
-        if (rb.linearVelocity.sqrMagnitude > 0.01f && moved < 0.0005f){
-            stuckTickCount++;
-        }
-        else{
-            stuckTickCount = 0;
-        }
-
-        if (stuckTickCount >= 10){
-            bool forwardBlocked = IsBlocked(currentDir);
-            int wallOverlaps = GetWallOverlapCount();
-        }
-
-        lastFixedPosition = transform.position;
-        if (fixedTick % 20 == 0){
-        }
-        FaceDirection(currentDir);
+        _rb.linearVelocity = _currentDir * speed;
+        FaceDirection(_currentDir);
     }
 
     private void ReadInput(){
         Vector3 input = Vector3.zero;
-        //one axis at a time
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        if (Mathf.Abs(h) > 0.1f)      input = new Vector3(Mathf.Sign(h), 0, 0);
+        if (Mathf.Abs(h) > 0.1f) input = new Vector3(Mathf.Sign(h), 0, 0);
         else if (Mathf.Abs(v) > 0.1f) input = new Vector3(0, 0, Mathf.Sign(v));
 
         if (input == Vector3.zero) return;
+        if (_inverted) input = -input;
+        if (input == _currentDir) return;
 
-        if (inverted) input = -input;
-        if (input == currentDir) return;
-
-        queuedDir = input;
-        queuedDirTimer = turnBufferTime;
+        _queuedDir = input;
+        _queuedDirTimer = turnBufferTime;
     }
 
     private void TryApplyQueuedDirection(){
-        if (queuedDirTimer <= 0f) return;
-        queuedDirTimer -= Time.deltaTime;
-        if (queuedDir == Vector3.zero) return;
+        if (_queuedDirTimer <= 0f) return;
+        _queuedDirTimer -= Time.deltaTime;
+        if (_queuedDir == Vector3.zero) return;
 
-        if (queuedDir == -currentDir){
-            currentDir = queuedDir;
-            queuedDir = Vector3.zero;
-            queuedDirTimer = 0f;
+        if (_queuedDir == -_currentDir){
+            _currentDir = _queuedDir;
+            _queuedDir = Vector3.zero;
+            _queuedDirTimer = 0f;
             return;
         }
 
-        if (!IsBlocked(queuedDir)){
-            currentDir = queuedDir;
-            Vector3 beforeSnap = transform.position;
-            queuedDir = Vector3.zero;
-            queuedDirTimer = 0f;
+        if (!IsBlocked(_queuedDir)){
+            _currentDir = _queuedDir;
+            _queuedDir = Vector3.zero;
+            _queuedDirTimer = 0f;
         }
-        else if (queuedDir != Vector3.zero){ }
     }
 
     private bool IsBlocked(Vector3 dir){
         return Physics.Raycast(transform.position, dir, raycastDistance, wallLayer);
-    }
-
-    private int GetWallOverlapCount(){
-        Collider[] overlaps = Physics.OverlapSphere(transform.position, 0.25f, wallLayer);
-        return overlaps != null ? overlaps.Length : 0;
     }
 
     private void FaceDirection(Vector3 dir){
@@ -142,18 +119,5 @@ public class ChompController : MonoBehaviour{
             bodyVisual.rotation,
             Quaternion.LookRotation(dir, Vector3.up),
             15f * Time.fixedDeltaTime);
-    }
-
-    void OnTriggerEnter(Collider other){
-        // collision with a ghost is handled by ghost controller
-    }
-
-    void OnCollisionStay(Collision collision){
-        if (stuckTickCount < 5) return;
-        if (Time.time < nextCollisionLogTime) return;
-        nextCollisionLogTime = Time.time + 0.2f;
-
-        Collider col = collision.collider;
-        if (col == null) return;
     }
 }

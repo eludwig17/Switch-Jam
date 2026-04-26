@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class GhostController : MonoBehaviour{
-    public enum GhostMood { Chase, Frightened, Eaten, Roam }
+    private enum GhostMood { Chase, Frightened, Eaten, Roam }
 
     [Header("References")]
     [SerializeField] private Transform player;
@@ -25,38 +25,37 @@ public class GhostController : MonoBehaviour{
     [SerializeField] private Color eatenColor = new Color(0.5f, 0.5f, 0.5f, 0.3f);
     [SerializeField] private Color roamColor = new Color(1f, 0.6f, 0.1f);
 
-    private Rigidbody rb;
-    private GhostMood mood = GhostMood.Roam;
-    private Coroutine respawnRoutine;
+    private Rigidbody _rb;
+    private GhostMood _mood = GhostMood.Roam;
+    private Coroutine _respawnRoutine;
 
-    private List<Vector3> currentPath = new List<Vector3>();
-    private int pathIndex = 0;
-    private Vector3 roamTarget;
+    private List<Vector3> _currentPath = new List<Vector3>();
+    private int _pathIndex;
+    private Vector3 _roamTarget;
+    private bool _canHit = true;
 
     private static readonly Vector3[] Cardinals = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
 
-    private bool canHit = true;
-    
     private class Node{
-        public Vector3 pos;
-        public Node parent;
-        public float g;
-        public float h;
-        public float f => g + h;
+        public readonly Vector3 Pos;
+        public readonly Node Parent;
+        public readonly float G;
+        private readonly float _h;
+        public float F => G + _h;
 
         public Node(Vector3 pos, Node parent, float g, float h){
-            this.pos = pos;
-            this.parent = parent;
-            this.g = g;
-            this.h = h;
+            Pos = pos;
+            Parent = parent;
+            G = g;
+            _h = h;
         }
     }
 
     void Awake(){
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
-        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
-
+        _rb = GetComponent<Rigidbody>();
+        _rb.useGravity = false;
+        _rb.constraints = (RigidbodyConstraints)80;
+        
         if (player == null){
             var pObj = GameObject.FindGameObjectWithTag("Player");
             if (pObj != null) player = pObj.transform;
@@ -80,67 +79,64 @@ public class GhostController : MonoBehaviour{
         StartCoroutine(PathUpdateLoop());
     }
 
-    private void HandleNormalMode(){ if (mood != GhostMood.Eaten) SetMood(GhostMood.Roam); }
-    private void HandleRaveMode(){ if (mood != GhostMood.Eaten) SetMood(GhostMood.Frightened); }
-    private void HandleSwitchMode(){ if (mood != GhostMood.Eaten) SetMood(GhostMood.Frightened); }
+    private void HandleNormalMode(){ if (_mood != GhostMood.Eaten) SetMood(GhostMood.Roam); }
+    private void HandleRaveMode(){ if (_mood != GhostMood.Eaten) SetMood(GhostMood.Frightened); }
+    private void HandleSwitchMode(){ if (_mood != GhostMood.Eaten) SetMood(GhostMood.Frightened); }
 
     void FixedUpdate(){
         if (GameManager.Instance == null) return;
         float dist = player != null ? Vector3.Distance(transform.position, player.position) : float.MaxValue;
 
-        if (mood == GhostMood.Roam && dist <= playerDetectionRange)
+        if (_mood == GhostMood.Roam && dist <= playerDetectionRange)
             SetMood(GhostMood.Chase);
-        else if (mood == GhostMood.Chase && dist > playerDetectionRange)
+        else if (_mood == GhostMood.Chase && dist > playerDetectionRange)
             SetMood(GhostMood.Roam);
 
-        float speed = mood == GhostMood.Frightened
-            ? GameManager.Instance.Config.ghostFrightenedSpeed
-            : GameManager.Instance.Config.ghostNormalSpeed;
+        float speed = _mood == GhostMood.Frightened ? GameManager.Instance.Config.ghostFrightenedSpeed : GameManager.Instance.Config.ghostNormalSpeed;
         MoveAlongPath(speed);
     }
 
     private void MoveAlongPath(float speed){
-        if (currentPath == null || pathIndex >= currentPath.Count){
-            rb.linearVelocity = Vector3.zero;
-            if (mood == GhostMood.Roam) PickNewRoamTarget();
+        if (_currentPath == null || _pathIndex >= _currentPath.Count){
+            _rb.linearVelocity = Vector3.zero;
+            if (_mood == GhostMood.Roam) PickNewRoamTarget();
             return;
         }
 
-        Vector3 target = currentPath[pathIndex];
+        Vector3 target = _currentPath[_pathIndex];
         target.y = transform.position.y;
         Vector3 dir = target - transform.position;
 
         if (dir.magnitude <= waypointReachedDistance){
-            pathIndex++;
+            _pathIndex++;
             return;
         }
-        rb.linearVelocity = dir.normalized * speed;
+        _rb.linearVelocity = dir.normalized * speed;
     }
-
+    
     private IEnumerator PathUpdateLoop(){
         while (true){
             yield return new WaitForSeconds(pathUpdateInterval);
             if (GameManager.Instance == null) continue;
 
             List<Vector3> newPath = FindPath(transform.position, GetGoalPosition());
-            if (newPath != null && newPath.Count > 0){
-                currentPath = newPath;
-                pathIndex = 0;
+            if (newPath is { Count: > 0 }){
+                _currentPath = newPath;
+                _pathIndex = 0;
             }
         }
     }
 
     private Vector3 GetGoalPosition(){
-        return mood switch{
-            GhostMood.Chase => player != null ? player.position : roamTarget,
+        return _mood switch{
+            GhostMood.Chase => player != null ? player.position : _roamTarget,
             GhostMood.Frightened => GetFleeTarget(),
-            GhostMood.Eaten => ghostHome != null ? ghostHome.position : transform.position,
-            GhostMood.Roam => roamTarget, _ => roamTarget
+            GhostMood.Eaten => ghostHome != null ? ghostHome.position : transform.position, _ => _roamTarget
         };
     }
 
     private Vector3 GetFleeTarget(){
-        if (player == null) return roamTarget;
+        if (player == null) return _roamTarget;
 
         Vector3 best = transform.position;
         float bestScore = float.NegativeInfinity;
@@ -163,11 +159,11 @@ public class GhostController : MonoBehaviour{
                 Random.Range(-roamWaypointRadius, roamWaypointRadius));
 
             if (!Physics.CheckSphere(candidate, 0.3f, wallLayer)){
-                roamTarget = candidate;
+                _roamTarget = candidate;
                 return;
             }
         }
-        roamTarget = transform.position + transform.forward * 3f;
+        _roamTarget = transform.position + transform.forward * 3f;
     }
 
     private List<Vector3> FindPath(Vector3 startWorld, Vector3 goalWorld){
@@ -185,23 +181,22 @@ public class GhostController : MonoBehaviour{
 
             Node current = open[0];
             for (int i = 1; i < open.Count; i++)
-                if (open[i].f < current.f) current = open[i];
+                if (open[i].F < current.F) current = open[i];
 
             open.Remove(current);
 
-            string key = NodeKey(current.pos, step);
-            if (closed.Contains(key)) continue;
-            closed.Add(key);
+            string key = NodeKey(current.Pos, step);
+            if (!closed.Add(key)) continue;
 
-            if (Vector3.Distance(current.pos, goal) <= step * 1.5f)
+            if (Vector3.Distance(current.Pos, goal) <= step * 1.5f)
                 return BuildPath(current);
 
             foreach (var d in Cardinals){
-                Vector3 neighbourPos = current.pos + d * step;
+                Vector3 neighbourPos = current.Pos + d * step;
                 if (closed.Contains(NodeKey(neighbourPos, step))) continue;
-                if (Physics.Raycast(current.pos, d, step, wallLayer)) continue;
+                if (Physics.Raycast(current.Pos, d, step, wallLayer)) continue;
 
-                open.Add(new Node(neighbourPos, current, current.g + step, Heuristic(neighbourPos, goal)));
+                open.Add(new Node(neighbourPos, current, current.G + step, Heuristic(neighbourPos, goal)));
             }
         }
         return new List<Vector3> { goalWorld };
@@ -211,8 +206,8 @@ public class GhostController : MonoBehaviour{
         var path = new List<Vector3>();
         Node n = endNode;
         while (n != null){
-            path.Add(n.pos);
-            n = n.parent;
+            path.Add(n.Pos);
+            n = n.Parent;
         }
         path.Reverse();
         return path;
@@ -234,17 +229,16 @@ public class GhostController : MonoBehaviour{
     }
 
     private void SetMood(GhostMood newMood){
-        mood = newMood;
+        _mood = newMood;
         ApplyMoodColor();
         if (newMood == GhostMood.Roam) PickNewRoamTarget();
     }
 
     private void ApplyMoodColor(){
-        Color c = mood switch{
+        Color c = _mood switch{
             GhostMood.Chase => chaseColor,
             GhostMood.Frightened => scaredColor,
-            GhostMood.Eaten => eatenColor,
-            GhostMood.Roam => roamColor, _ => Color.white
+            GhostMood.Eaten => eatenColor, _ => roamColor
         };
         foreach (var r in bodyRenderers)
             if (r != null && r.material != null) r.material.color = c;
@@ -255,21 +249,21 @@ public class GhostController : MonoBehaviour{
 
     private void HandlePlayerContact(Collider other){
         if (!other.CompareTag("Player")) return;
-        if (mood == GhostMood.Eaten) return;
-        if (!canHit) return;
+        if (_mood == GhostMood.Eaten) return;
+        if (!_canHit) return;
 
         var mgr = GameManager.Instance;
         if (mgr == null) return;
 
         if (mgr.IsInRaveMode || mgr.IsInSwitchMode){
-            canHit = false;
+            _canHit = false;
             GameEvents.GhostEaten();
             SetMood(GhostMood.Eaten);
-            if (respawnRoutine != null) StopCoroutine(respawnRoutine);
-            respawnRoutine = StartCoroutine(RespawnRoutine());
+            if (_respawnRoutine != null) StopCoroutine(_respawnRoutine);
+            _respawnRoutine = StartCoroutine(RespawnRoutine());
         }
         else{
-            canHit = false;
+            _canHit = false;
             GameEvents.PlayerCaught();
             StartCoroutine(ResetHitCooldown());
         }
@@ -277,19 +271,33 @@ public class GhostController : MonoBehaviour{
 
     private IEnumerator ResetHitCooldown(){
         yield return new WaitForSeconds(1.5f);
-        canHit = true;
+        _canHit = true;
     }
-    
+
     private IEnumerator RespawnRoutine(){
-        rb.linearVelocity = Vector3.zero;
+        _rb.linearVelocity = Vector3.zero;
         if (ghostHome != null) transform.position = ghostHome.position;
+        _canHit = false;
 
         yield return new WaitForSeconds(GameManager.Instance.Config.ghostRespawnDelay);
+
+        for (int i = 0; i < 20; i++){
+            yield return new WaitForFixedUpdate();
+            _rb.linearVelocity = Vector3.forward * GameManager.Instance.Config.ghostNormalSpeed;
+            if (!Physics.CheckSphere(transform.position, 0.5f, wallLayer)) break;
+        }
+
+        _rb.linearVelocity = Vector3.zero;
+        _currentPath.Clear();
+        _pathIndex = 0;
+        PickNewRoamTarget();
 
         var mgr = GameManager.Instance;
         if (mgr != null && (mgr.IsInRaveMode || mgr.IsInSwitchMode))
             SetMood(GhostMood.Frightened);
         else
             SetMood(GhostMood.Roam);
+
+        _canHit = true;
     }
 }

@@ -24,9 +24,9 @@ MonoBehaviour:
   invertControlChance: 0.3
   invertControlMinDuration: 2
   invertControlMaxDuration: 4
-  chompMoveSpeed: 5
-  ghostFormMoveSpeed: 6
-  startingLives: 3
-  ghostNormalSpeed: 4
+  chompMoveSpeed: 3
+  ghostFormMoveSpeed: 4
+  startingLives: 2
+  ghostNormalSpeed: 3
   ghostFrightenedSpeed: 2.5
   ghostRespawnDelay: 3

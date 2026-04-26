@@ -21,7 +21,7 @@ public class GameConfig : ScriptableObject{
 	public float invertControlMaxDuration = 4f;
 
 	[Header("Player")]
-	public float chompMoveSpeed = 5f;
+	public float chompMoveSpeed = 4f;
 	public float ghostFormMoveSpeed = 6f;
 	public int startingLives = 3;
 
