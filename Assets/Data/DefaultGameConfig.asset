@@ -22,8 +22,8 @@ MonoBehaviour:
   raveDuration: 8
   switchDuration: 10
   invertControlChance: 0.3
-  invertControlMinDuration: 2
-  invertControlMaxDuration: 4
+  invertControlMinDuration: 5
+  invertControlMaxDuration: 10
   chompMoveSpeed: 3
   ghostFormMoveSpeed: 4
   startingLives: 2

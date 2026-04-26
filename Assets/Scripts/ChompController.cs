@@ -53,11 +53,15 @@ public class ChompController : MonoBehaviour{
     }
 
     void Update(){
+        if (GameManager.Instance == null || GameManager.Instance.CurrentState == GameManager.GameState.MainMenu || GameManager.Instance.CurrentState == GameManager.GameState.GameOver) 
+            return;
         ReadInput();
         TryApplyQueuedDirection();
     }
 
     void FixedUpdate(){
+        if (GameManager.Instance == null || GameManager.Instance.CurrentState == GameManager.GameState.MainMenu || GameManager.Instance.CurrentState == GameManager.GameState.GameOver) 
+            return;
         if (_currentDir == Vector3.zero) return;
         if (IsBlocked(_currentDir)){
             _rb.linearVelocity = Vector3.zero;

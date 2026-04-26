@@ -85,6 +85,7 @@ public class GhostController : MonoBehaviour{
 
     void FixedUpdate(){
         if (GameManager.Instance == null) return;
+        if (GameManager.Instance.CurrentState == GameManager.GameState.MainMenu || GameManager.Instance.CurrentState == GameManager.GameState.GameOver) return;
         float dist = player != null ? Vector3.Distance(transform.position, player.position) : float.MaxValue;
 
         if (_mood == GhostMood.Roam && dist <= playerDetectionRange)
@@ -118,7 +119,7 @@ public class GhostController : MonoBehaviour{
         while (true){
             yield return new WaitForSeconds(pathUpdateInterval);
             if (GameManager.Instance == null) continue;
-
+            if (GameManager.Instance.CurrentState == GameManager.GameState.MainMenu || GameManager.Instance.CurrentState == GameManager.GameState.GameOver) continue;
             List<Vector3> newPath = FindPath(transform.position, GetGoalPosition());
             if (newPath is { Count: > 0 }){
                 _currentPath = newPath;

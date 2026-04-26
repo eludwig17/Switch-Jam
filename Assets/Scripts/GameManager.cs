@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour{
 
     [Header("Runtime information | readonly")]
     [SerializeField] private GameState currState = GameState.MainMenu;
-    [SerializeField] private int score;
-    [SerializeField] private int lives = 3;
+    [SerializeField] int score;
+    [SerializeField] int highScore;
+    [SerializeField] private int lives;
     [SerializeField] private int powerPelletCount;
     [SerializeField] private bool controlsInverted;
 
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour{
     public GameConfig Config => config;
     public GameState CurrentState => currState;
     public int Score => score;
+    public int HighScore => highScore;
     public int Lives => lives;
     public bool ControlsInverted => controlsInverted;
     public bool IsInSwitchMode => currState == GameState.Switch;
@@ -113,6 +115,7 @@ public class GameManager : MonoBehaviour{
         lives--;
         GameEvents.LivesChanged(lives);
         if (lives <= 0){
+            if (score > highScore) highScore = score;
             TransitionTo(GameState.GameOver);
             GameEvents.GameOver();
         }
@@ -145,6 +148,7 @@ public class GameManager : MonoBehaviour{
                 _modeCoroutine = StartCoroutine(SwitchRoutine());
                 break;
             case GameState.GameOver:
+                Time.timeScale = 0f;
                 break;
         }
     }
