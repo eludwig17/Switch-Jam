@@ -8,9 +8,9 @@ public class VolumeSettings : MonoBehaviour{
 
 	void Start(){
 		if (musicSlider == null) return;
-		if (AudioManager.Instance == null) return;
-		musicSlider.value = AudioManager.Instance.musicVolume;
-		UpdateLabel(musicSlider.value);
+		float saved = AudioManager.Instance != null ? AudioManager.Instance.musicVolume : PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+		musicSlider.value = saved;
+		UpdateLabel(saved);
 	}
 
 	public void SetMusicVolume(float value){
