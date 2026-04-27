@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour{
             return;
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
         highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 

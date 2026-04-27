@@ -137,7 +137,10 @@ public class UIManager : MonoBehaviour {
 
     public void PlayButton(){
         Time.timeScale = 1f;
-        GameManager.Instance.StartGame();
+        if (GameManager.Instance != null)
+            GameManager.Instance.StartGame();
+        else
+            Debug.LogError("game manager instance missing");
     }
   
     public void TogglePause() => GameManager.Instance.TogglePause();

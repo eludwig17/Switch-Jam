@@ -37,13 +37,12 @@ public class AudioManager : MonoBehaviour{
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        _sfxSource = GetComponent<AudioSource>();
+        var sources = GetComponents<AudioSource>();
+        _sfxSource = sources[0];
         _sfxSource.playOnAwake = false;
-        if (_musicSource == null){
-            _musicSource = gameObject.AddComponent<AudioSource>();
-            _musicSource.loop = true;
-            _musicSource.playOnAwake = false;
-        }
+        _musicSource = sources.Length > 1 ? sources[1] : gameObject.AddComponent<AudioSource>();
+        _musicSource.loop = true;
+        _musicSource.playOnAwake = false;
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", musicVolume);
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", sfxVolume);
     }
