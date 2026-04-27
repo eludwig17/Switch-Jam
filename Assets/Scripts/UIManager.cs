@@ -104,10 +104,11 @@ public class UIManager : MonoBehaviour {
     }
 
     private void HandleGameOver(){
-        if (gameOverScoreText != null && GameManager.Instance != null)
-            gameOverScoreText.text = "SCORE: " + GameManager.Instance.Score;
-        if (highScoreText != null && GameManager.Instance != null)
-            highScoreText.text = "BEST: " + GameManager.Instance.HighScore;
+        if (gameOverScoreText != null)
+            gameOverScoreText.text = PlayerPrefs.GetInt("LastScore", 0).ToString();
+        if (highScoreText != null)
+            highScoreText.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        if (pauseMenuPanel) pauseMenuPanel.SetActive(false);
         ShowOnly(gameOverPanel);
     }
 

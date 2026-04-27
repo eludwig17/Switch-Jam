@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour{
             return;
         }
         Instance = this;
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void OnEnable(){
@@ -115,7 +116,12 @@ public class GameManager : MonoBehaviour{
         lives--;
         GameEvents.LivesChanged(lives);
         if (lives <= 0){
-            if (score > highScore) highScore = score;
+            if (score > highScore){
+                highScore = score;
+                PlayerPrefs.SetInt("HighScore", highScore);
+                PlayerPrefs.Save();
+            }
+            PlayerPrefs.SetInt("LastScore", score);
             TransitionTo(GameState.GameOver);
             GameEvents.GameOver();
         }

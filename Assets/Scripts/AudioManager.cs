@@ -39,11 +39,13 @@ public class AudioManager : MonoBehaviour{
         DontDestroyOnLoad(gameObject);
         _sfxSource = GetComponent<AudioSource>();
         _sfxSource.playOnAwake = false;
-        _musicSource = gameObject.AddComponent<AudioSource>();
-        _musicSource.loop = true;
-        _musicSource.playOnAwake = false;
+        if (_musicSource == null){
+            _musicSource = gameObject.AddComponent<AudioSource>();
+            _musicSource.loop = true;
+            _musicSource.playOnAwake = false;
+        }
         musicVolume = PlayerPrefs.GetFloat("MusicVolume", musicVolume);
-        sfxVolume   = PlayerPrefs.GetFloat("SFXVolume",   sfxVolume);
+        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", sfxVolume);
     }
 
     void OnEnable(){
