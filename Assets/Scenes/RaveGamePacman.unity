@@ -13326,7 +13326,11 @@ MonoBehaviour:
     m_Bits: 64
   bodyRenderers:
   - {fileID: 963243384}
-  raycastDistance: 0.4
+  gridOrigin: {x: -12, y: 0, z: -12}
+  gridWidth: 25
+  gridHeight: 25
+  cellSize: 1
+  wallCheckRadius: 0.35
   pathUpdateInterval: 0.2
   waypointReachedDistance: 0.15
   playerDetectionRange: 8
@@ -14839,22 +14843,22 @@ PrefabInstance:
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.991922
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12684968
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
@@ -14864,7 +14868,7 @@ PrefabInstance:
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 104.575005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9163715946089635206, guid: bbf054d6e436c51468be981115a84991,
         type: 3}
@@ -14884,11 +14888,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9163715946089988518, guid: bbf054d6e436c51468be981115a84991,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1080514401}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf054d6e436c51468be981115a84991, type: 3}
 --- !u!4 &1080514398 stripped
 Transform:
@@ -14902,33 +14902,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1080514397}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &1080514401
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080514399}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1084919735 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: dfa846214fe98954ca47d9a694a75cf4,
@@ -19567,7 +19540,11 @@ MonoBehaviour:
     m_Bits: 64
   bodyRenderers:
   - {fileID: 1446365553}
-  raycastDistance: 0.4
+  gridOrigin: {x: -12, y: 0, z: -12}
+  gridWidth: 25
+  gridHeight: 25
+  cellSize: 1
+  wallCheckRadius: 0.35
   pathUpdateInterval: 0.2
   waypointReachedDistance: 0.15
   playerDetectionRange: 8
@@ -23962,6 +23939,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7308235905141624704, guid: d33249e5ae722fb40ad2807c439696d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7308235905141624706, guid: d33249e5ae722fb40ad2807c439696d9,
         type: 3}
       propertyPath: m_Name
@@ -25703,7 +25685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781734308}
   - component: {fileID: 1781734309}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26430,7 +26412,11 @@ MonoBehaviour:
     m_Bits: 64
   bodyRenderers:
   - {fileID: 1822325009}
-  raycastDistance: 0.4
+  gridOrigin: {x: -12, y: 0, z: -12}
+  gridWidth: 25
+  gridHeight: 25
+  cellSize: 1
+  wallCheckRadius: 0.35
   pathUpdateInterval: 0.2
   waypointReachedDistance: 0.15
   playerDetectionRange: 8
@@ -31550,7 +31536,11 @@ MonoBehaviour:
     m_Bits: 64
   bodyRenderers:
   - {fileID: 610395948474079905}
-  raycastDistance: 0.4
+  gridOrigin: {x: -12, y: 0, z: -12}
+  gridWidth: 25
+  gridHeight: 25
+  cellSize: 1
+  wallCheckRadius: 0.35
   pathUpdateInterval: 0.2
   waypointReachedDistance: 0.15
   playerDetectionRange: 8
