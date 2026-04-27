@@ -12,10 +12,16 @@ public class GhostController : MonoBehaviour{
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Renderer[] bodyRenderers;
 
+    [Header("Grid setup")]
+    [SerializeField] private Vector3 gridOrigin = new Vector3(-12f, 0f, -12f);
+    [SerializeField] private int gridWidth = 25;
+    [SerializeField] private int gridHeight = 25;
+    [SerializeField] private float cellSize = 1f;
+    [SerializeField] private float wallCheckRadius = 0.35f;
+
     [Header("Tuning")]
-    [SerializeField] private float raycastDistance = 0.8f;
-    [SerializeField] private float pathUpdateInterval = 0.2f;
-    [SerializeField] private float waypointReachedDistance = 0.25f;
+    [SerializeField] private float pathUpdateInterval = 0.25f;
+    [SerializeField] private float waypointReachedDistance = 0.3f;
     [SerializeField] private float playerDetectionRange = 8f;
     [SerializeField] private float roamWaypointRadius = 5f;
     [SerializeField] private float stuckCheckInterval = 1.5f;
@@ -36,37 +42,35 @@ public class GhostController : MonoBehaviour{
     private int _pathIndex;
     private Vector3 _roamTarget;
     private bool _canHit = true;
-    private Vector3 _lastCheckedPos;
+    private Vector3 _lastCheckedPosition;
     private float _stuckTimer;
 
-    private static readonly Vector3[] Cardinals = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
+    private static bool[,] _walkable;
+    private static int _width;
+    private static int _height;
+    private static float _cellSize;
+    private static Vector3 _origin;
+    private static bool _gridReady = false;
 
-    private class Node{
-        public readonly Vector3 Pos;
-        public readonly Node Parent;
-        public readonly float G;
-        private readonly float _h;
-        public float F => G + _h;
-
-        public Node(Vector3 pos, Node parent, float g, float h){
-            Pos = pos;
-            Parent = parent;
-            G = g;
-            _h = h;
-        }
-    }
+    private static readonly Vector2Int[] CardinalCells = {
+        Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right
+    };
+    private static readonly Vector3[] Cardinals = {
+        Vector3.forward, Vector3.back, Vector3.left, Vector3.right
+    };
 
     void Awake(){
         _rb = GetComponent<Rigidbody>();
         _rb.useGravity = false;
-        _rb.constraints = (RigidbodyConstraints)80;
-        
+        _rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+
         if (player == null){
             var pObj = GameObject.FindGameObjectWithTag("Player");
             if (pObj != null) player = pObj.transform;
         }
+        if (!_gridReady) Grid();
         PickNewRoamTarget();
-        _lastCheckedPos = transform.position;
+        _lastCheckedPosition = transform.position;
     }
 
     void OnEnable(){
@@ -105,25 +109,10 @@ public class GhostController : MonoBehaviour{
         _stuckTimer += Time.fixedDeltaTime;
         if (_stuckTimer >= stuckCheckInterval){
             _stuckTimer = 0f;
-            float moved = Vector3.Distance(transform.position, _lastCheckedPos);
-            if (moved < stuckMoveThreshold && _mood != GhostMood.Eaten)
-                ForceUnStuck();
-            _lastCheckedPos = transform.position;
+            if (Vector3.Distance(transform.position, _lastCheckedPosition) < stuckMoveThreshold && _mood != GhostMood.Eaten)
+                NudgeOutOfStuck();
+            _lastCheckedPosition = transform.position;
         }
-    }
-    
-    private void ForceUnStuck(){
-        foreach (var d in Cardinals){
-            if (!Physics.Raycast(transform.position, d, raycastDistance * 1.5f, wallLayer)){
-                _rb.linearVelocity = d * nudgeForce;
-                _currentPath.Clear();
-                _pathIndex = 0;
-                PickNewRoamTarget();
-                return;
-            }
-        }
-        _rb.linearVelocity = Vector3.zero;
-        transform.position += Vector3.right * 0.1f;
     }
 
     private void MoveAlongPath(float speed){
@@ -143,14 +132,30 @@ public class GhostController : MonoBehaviour{
         }
         _rb.linearVelocity = dir.normalized * speed;
     }
-    
+
+    private void NudgeOutOfStuck(){
+        foreach (var d in Cardinals){
+            Vector2Int cell = WorldToGrid(transform.position + d * _cellSize);
+            if (InBounds(cell.x, cell.y) && _walkable[cell.x, cell.y]){
+                _rb.linearVelocity = d * nudgeForce;
+                _currentPath.Clear();
+                _pathIndex = 0;
+                PickNewRoamTarget();
+                return;
+            }
+        }
+        _rb.linearVelocity = Vector3.zero;
+        transform.position += Vector3.right * 0.1f;
+    }
+
     private IEnumerator PathUpdateLoop(){
+        yield return new WaitForSeconds(Random.Range(0f, pathUpdateInterval));
         while (true){
             yield return new WaitForSeconds(pathUpdateInterval);
             if (GameManager.Instance == null) continue;
             if (GameManager.Instance.CurrentState == GameManager.GameState.MainMenu || GameManager.Instance.CurrentState == GameManager.GameState.GameOver) continue;
             List<Vector3> newPath = FindPath(transform.position, GetGoalPosition());
-            if (newPath is { Count: > 0 }){
+            if (newPath != null && newPath.Count > 0){
                 _currentPath = newPath;
                 _pathIndex = 0;
             }
@@ -183,79 +188,111 @@ public class GhostController : MonoBehaviour{
     }
 
     private void PickNewRoamTarget(){
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 15; i++){
             Vector3 candidate = transform.position + new Vector3(
                 Random.Range(-roamWaypointRadius, roamWaypointRadius), 0,
                 Random.Range(-roamWaypointRadius, roamWaypointRadius));
 
-            if (!Physics.CheckSphere(candidate, 0.3f, wallLayer)){
-                _roamTarget = candidate;
+            if (!_gridReady){ _roamTarget = candidate; return; }
+            Vector2Int cell = WorldToGrid(candidate);
+            if (InBounds(cell.x, cell.y) && _walkable[cell.x, cell.y]){
+                _roamTarget = GridToWorld(cell.x, cell.y);
                 return;
             }
         }
         _roamTarget = transform.position + transform.forward * 3f;
     }
 
-    private List<Vector3> FindPath(Vector3 startWorld, Vector3 goalWorld){
-        float step = raycastDistance * 1.2f;
-        Vector3 start = SnapToStep(startWorld, step);
-        Vector3 goal = SnapToStep(goalWorld, step);
+    private void Grid(){
+        _width = gridWidth;
+        _height = gridHeight;
+        _cellSize = cellSize;
+        _origin = gridOrigin;
+        _walkable = new bool[gridWidth, gridHeight];
+        float checkY = gridOrigin.y + cellSize * 0.5f;
 
-        var open = new List<Node>();
-        var closed = new HashSet<string>();
-        open.Add(new Node(start, null, 0, Heuristic(start, goal)));
-
-        int iterations = 0;
-        while (open.Count > 0 && iterations < 2000){
-            iterations++;
-
-            Node current = open[0];
-            for (int i = 1; i < open.Count; i++)
-                if (open[i].F < current.F) current = open[i];
-
-            open.Remove(current);
-
-            string key = NodeKey(current.Pos, step);
-            if (!closed.Add(key)) continue;
-
-            if (Vector3.Distance(current.Pos, goal) <= step * 1.5f)
-                return BuildPath(current);
-
-            foreach (var d in Cardinals){
-                Vector3 neighbourPos = current.Pos + d * step;
-                if (closed.Contains(NodeKey(neighbourPos, step))) continue;
-                if (Physics.Raycast(current.Pos, d, step, wallLayer)) continue;
-
-                open.Add(new Node(neighbourPos, current, current.G + step, Heuristic(neighbourPos, goal)));
+        for (int x = 0; x < gridWidth; x++){
+            for (int z = 0; z < gridHeight; z++){
+                Vector3 worldPos = GridToWorld(x, z);
+                worldPos.y = checkY;
+                _walkable[x, z] = !Physics.CheckSphere(worldPos, wallCheckRadius, wallLayer);
             }
         }
-        return new List<Vector3> { goalWorld };
+        _gridReady = true;
     }
 
-    private List<Vector3> BuildPath(Node endNode){
+    private static Vector3 GridToWorld(int x, int z){
+        return new Vector3(_origin.x + x * _cellSize + _cellSize * 0.5f, _origin.y, _origin.z + z * _cellSize + _cellSize * 0.5f);
+    }
+
+    private static Vector2Int WorldToGrid(Vector3 world){
+        int x = Mathf.FloorToInt((world.x - _origin.x) / _cellSize);
+        int z = Mathf.FloorToInt((world.z - _origin.z) / _cellSize);
+        return new Vector2Int(
+            Mathf.Clamp(x, 0, _width - 1),
+            Mathf.Clamp(z, 0, _height - 1));
+    }
+
+    private static bool InBounds(int x, int z){
+        return x >= 0 && x < _width && z >= 0 && z < _height;
+    }
+
+    private Vector2Int NearestWalkable(Vector2Int cell){
+        for (int r = 1; r < 6; r++){
+            for (int dx = -r; dx <= r; dx++){
+                for (int dz = -r; dz <= r; dz++){
+                    int nx = cell.x + dx, nz = cell.y + dz;
+                    if (InBounds(nx, nz) && _walkable[nx, nz])
+                        return new Vector2Int(nx, nz);
+                }
+            }
+        }
+        return cell;
+    }
+
+    private List<Vector3> FindPath(Vector3 startWorld, Vector3 goalWorld){
+        if (!_gridReady) return new List<Vector3>{ goalWorld };
+
+        Vector2Int start = WorldToGrid(startWorld);
+        Vector2Int goal = WorldToGrid(goalWorld);
+
+        if (!_walkable[start.x, start.y]) start = NearestWalkable(start);
+        if (!_walkable[goal.x, goal.y]) goal = NearestWalkable(goal);
+
+        if (start == goal) return new List<Vector3>{ GridToWorld(goal.x, goal.y) };
+
+        var parent = new Dictionary<Vector2Int, Vector2Int>();
+        var frontier = new Queue<Vector2Int>();
+
+        frontier.Enqueue(start);
+        parent[start] = start;
+
+        bool found = false;
+        while (frontier.Count > 0){
+            Vector2Int current = frontier.Dequeue();
+            if (current == goal){ found = true; break; }
+
+            foreach (var dir in CardinalCells){
+                Vector2Int next = current + dir;
+                if (!InBounds(next.x, next.y)) continue;
+                if (!_walkable[next.x, next.y]) continue;
+                if (parent.ContainsKey(next)) continue;
+
+                parent[next] = current;
+                frontier.Enqueue(next);
+            }
+        }
+
+        if (!found) return new List<Vector3>{ goalWorld };
+
         var path = new List<Vector3>();
-        Node n = endNode;
-        while (n != null){
-            path.Add(n.Pos);
-            n = n.Parent;
+        Vector2Int step = goal;
+        while (step != start){
+            path.Add(GridToWorld(step.x, step.y));
+            step = parent[step];
         }
         path.Reverse();
         return path;
-    }
-
-    private float Heuristic(Vector3 a, Vector3 b){
-        return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.z - b.z);
-    }
-
-    private Vector3 SnapToStep(Vector3 pos, float step){
-        return new Vector3(
-            Mathf.Round(pos.x / step) * step,
-            pos.y,
-            Mathf.Round(pos.z / step) * step);
-    }
-
-    private string NodeKey(Vector3 pos, float step){
-        return $"{Mathf.RoundToInt(pos.x / step)},{Mathf.RoundToInt(pos.z / step)}";
     }
 
     private void SetMood(GhostMood newMood){
@@ -306,20 +343,45 @@ public class GhostController : MonoBehaviour{
 
     private IEnumerator RespawnRoutine(){
         _rb.linearVelocity = Vector3.zero;
-        if (ghostHome != null) transform.position = ghostHome.position;
+        _rb.isKinematic = true;
         _canHit = false;
+
+        if (ghostHome != null){
+            Vector2 offset = Random.insideUnitCircle * 0.4f;
+            transform.position = ghostHome.position + new Vector3(offset.x, 0f, offset.y);
+        }
 
         yield return new WaitForSeconds(GameManager.Instance.Config.ghostRespawnDelay);
 
-        for (int i = 0; i < 20; i++){
+        _rb.isKinematic = false;
+
+        var dirs = new List<Vector3>(Cardinals);
+        for (int i = dirs.Count - 1; i > 0; i--){
+            int j = Random.Range(0, i + 1);
+            (dirs[i], dirs[j]) = (dirs[j], dirs[i]);
+        }
+
+        Vector3 exitDir = Vector3.forward;
+        foreach (var d in dirs){
+            Vector2Int exitCell = WorldToGrid(transform.position + d * _cellSize);
+            if (InBounds(exitCell.x, exitCell.y) && _walkable[exitCell.x, exitCell.y]){
+                exitDir = d;
+                break;
+            }
+        }
+
+        for (int i = 0; i < 12; i++){
             yield return new WaitForFixedUpdate();
-            _rb.linearVelocity = Vector3.forward * GameManager.Instance.Config.ghostNormalSpeed;
-            if (!Physics.CheckSphere(transform.position, 0.5f, wallLayer)) break;
+            Vector2Int here = WorldToGrid(transform.position);
+            if (InBounds(here.x, here.y) && _walkable[here.x, here.y]) break;
+            _rb.MovePosition(transform.position + exitDir * (GameManager.Instance.Config.ghostNormalSpeed * Time.fixedDeltaTime));
         }
 
         _rb.linearVelocity = Vector3.zero;
         _currentPath.Clear();
         _pathIndex = 0;
+        _lastCheckedPosition = transform.position;
+        _stuckTimer = 0f;
         PickNewRoamTarget();
 
         var mgr = GameManager.Instance;
@@ -330,4 +392,18 @@ public class GhostController : MonoBehaviour{
 
         _canHit = true;
     }
+
+#if UNITY_EDITOR
+    void OnDrawGizmosSelected(){
+        if (!_gridReady) return;
+        for (int x = 0; x <_width; x++){
+            for (int z = 0; z < _height; z++){
+                Gizmos.color = _walkable[x, z] ? new Color(0f, 1f, 0f, 0.12f) : new Color(1f, 0f, 0f, 0.12f);
+                Vector3 centre = GridToWorld(x, z);
+                centre.y = _origin.y + 0.1f;
+                Gizmos.DrawCube(centre, Vector3.one * (_cellSize * 0.88f));
+            }
+        }
+    }
+#endif
 }
